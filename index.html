@@ -3,33 +3,27 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#0d0c0a">
+
+  <meta name="description"
+        content="Ember & Spice — Modern African Kitchen. Discover bold African flavours, premium dining and easy WhatsApp ordering in Mbarara, Uganda.">
+
+  <meta property="og:title"
+        content="Ember & Spice | Modern African Kitchen">
+
+  <meta property="og:description"
+        content="Bold African flavours. Modern dining. Order directly on WhatsApp.">
 
   <title>Ember & Spice | Modern African Kitchen</title>
 
-  <meta
-    name="description"
-    content="Ember & Spice — bold African flavours, fresh ingredients and unforgettable moments in Mbarara, Uganda."
-  >
-
   <style>
-    :root {
-      --bg: #0d0c0a;
-      --surface: #151310;
-      --surface2: #1b1712;
-      --line: #302a22;
-      --cream: #f7f0e6;
-      --muted: #aaa198;
-      --gold: #f4a52f;
-      --gold2: #ffbd4a;
-      --max: 1180px;
-      --radius: 28px;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -38,30 +32,34 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--cream);
+      background: #0d0c0a;
+      color: #f7f1e7;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
     }
 
     img {
       display: block;
       width: 100%;
-      object-fit: cover;
     }
 
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: auto;
+    :root {
+      --gold: #f2a329;
+      --gold-light: #ffbd52;
+      --cream: #f7f1e7;
+      --muted: #aaa39b;
+      --dark: #0d0c0a;
+      --card: #151412;
+      --border: rgba(242, 163, 41, 0.25);
     }
 
     /* =========================
@@ -71,83 +69,69 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(13, 12, 10, 0.94);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1000;
+      background: rgba(13, 12, 10, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
-      height: 76px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 23px;
+      font-size: 28px;
       font-weight: 900;
-      letter-spacing: 0.5px;
+      letter-spacing: -1px;
     }
 
     .logo span {
       color: var(--gold);
     }
 
-    .navlinks {
+    .nav-links {
       display: flex;
-      gap: 28px;
       align-items: center;
-      color: #d5cec5;
-      font-weight: 700;
+      gap: 28px;
     }
 
-    .navlinks a {
-      transition: 0.2s;
+    .nav-links a {
+      color: #ddd;
+      font-size: 15px;
+      transition: 0.3s;
     }
 
-    .navlinks a:hover {
+    .nav-links a:hover {
       color: var(--gold);
     }
 
-    .navcta,
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 0;
+    .nav-order {
+      padding: 11px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      color: var(--gold) !important;
+    }
+
+    .nav-order:hover {
       background: var(--gold);
-      color: #17110a;
-      font-weight: 900;
-      padding: 15px 23px;
-      border-radius: 999px;
-      transition: 0.2s;
-    }
-
-    .navcta:hover,
-    .btn:hover {
-      transform: translateY(-2px);
-      background: var(--gold2);
-    }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--cream);
-      border: 1px solid #51483d;
-    }
-
-    .btn.secondary:hover {
-      background: #211d18;
+      color: #111 !important;
     }
 
     .menu-toggle {
       display: none;
-      background: none;
-      border: 1px solid var(--line);
-      color: var(--cream);
-      border-radius: 12px;
-      padding: 9px 12px;
-      font-size: 20px;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(242,163,41,0.25);
+      border-radius: 17px;
+      background: #12110f;
+      color: white;
+      font-size: 27px;
+      cursor: pointer;
     }
 
     /* =========================
@@ -155,139 +139,125 @@
     ========================= */
 
     .hero {
-      min-height: calc(100vh - 76px);
-      display: grid;
-      place-items: center;
-      padding: 70px 0 90px;
-
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
       background:
-        radial-gradient(
-          circle at 75% 25%,
-          rgba(244, 165, 47, 0.16),
-          transparent 30%
+        linear-gradient(
+          90deg,
+          rgba(13,12,10,0.96) 0%,
+          rgba(13,12,10,0.72) 48%,
+          rgba(13,12,10,0.35) 100%
         ),
-        radial-gradient(
-          circle at 25% 70%,
-          rgba(137, 51, 24, 0.12),
-          transparent 35%
-        );
+        url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1800&q=90")
+        center/cover;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 55px;
-      align-items: center;
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 90px 25px;
     }
 
     .eyebrow {
+      display: inline-block;
       color: var(--gold);
       font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 5px;
+      font-weight: 800;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: clamp(52px, 7vw, 92px);
-      line-height: 0.96;
+    .hero h1 {
+      max-width: 780px;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.98;
       letter-spacing: -4px;
-      max-width: 720px;
+      margin-bottom: 28px;
     }
 
-    h1 span {
+    .hero h1 span {
       color: var(--gold);
     }
 
-    .lead {
+    .hero p {
+      max-width: 600px;
+      color: #d0cbc4;
       font-size: 20px;
-      color: var(--muted);
-      max-width: 650px;
-      margin: 27px 0 32px;
+      margin-bottom: 38px;
     }
 
-    .actions {
+    .hero-buttons {
       display: flex;
-      gap: 13px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
-    .hero-card {
-      position: relative;
-      min-height: 570px;
-      border-radius: 36px;
-      overflow: hidden;
-      border: 1px solid #4b3323;
-      background: linear-gradient(145deg, #5a2b19, #20150f);
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
     }
 
-    .hero-card img {
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      filter: saturate(1.05);
+    .btn-primary {
+      background: var(--gold);
+      color: #17120b;
     }
 
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(8, 7, 6, 0.8),
-        transparent 55%
-      );
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
     }
 
-    .hero-badge {
-      position: absolute;
-      z-index: 2;
-      bottom: 25px;
-      left: 25px;
-      background: rgba(13, 12, 10, 0.82);
-      border: 1px solid #56412e;
-      border-radius: 20px;
-      padding: 18px 20px;
-      backdrop-filter: blur(10px);
+    .btn-outline {
+      border: 1px solid rgba(242,163,41,0.55);
+      color: var(--gold);
+      background: rgba(0,0,0,0.2);
     }
 
-    .hero-badge strong {
-      display: block;
-      font-size: 20px;
-    }
-
-    .hero-badge small {
-      color: var(--muted);
+    .btn-outline:hover {
+      background: rgba(242,163,41,0.1);
+      transform: translateY(-3px);
     }
 
     /* =========================
-       SECTIONS
+       GENERAL
     ========================= */
 
     section {
-      padding: 105px 0;
+      padding: 100px 25px;
     }
 
-    .dark-band {
-      background: #11100e;
+    .container {
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .section-head {
-      max-width: 760px;
+    .section-heading {
       margin-bottom: 45px;
     }
 
-    .section-head h2 {
-      font-size: clamp(40px, 6vw, 68px);
+    .section-heading h2 {
+      font-size: clamp(36px, 5vw, 58px);
       line-height: 1;
+      margin-bottom: 15px;
       letter-spacing: -2px;
     }
 
-    .section-head p {
+    .section-heading p {
       color: var(--muted);
+      max-width: 650px;
       font-size: 18px;
-      margin-top: 18px;
     }
 
     /* =========================
@@ -295,36 +265,52 @@
     ========================= */
 
     .story {
+      background: #11100e;
+    }
+
+    .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 70px;
       align-items: center;
     }
 
-    .story-img {
-      height: 570px;
-      border-radius: 30px;
+    .story-image {
+      border-radius: 25px;
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
     }
 
-    .story-img img {
-      height: 100%;
+    .story-image img {
+      height: 520px;
+      object-fit: cover;
+      transition: transform 0.7s;
     }
 
-    .story-copy h2 {
-      font-size: clamp(40px, 5vw, 64px);
-      line-height: 1.02;
+    .story-image:hover img {
+      transform: scale(1.04);
     }
 
-    .story-copy h2 span {
-      color: var(--gold);
-    }
-
-    .story-copy p {
+    .story-text p {
       color: var(--muted);
       font-size: 18px;
-      margin: 24px 0;
+      margin-bottom: 20px;
+    }
+
+    .story-list {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .story-list li {
+      margin: 13px 0;
+      color: #ddd;
+    }
+
+    .story-list li::before {
+      content: "✦";
+      color: var(--gold);
+      margin-right: 10px;
     }
 
     /* =========================
@@ -332,26 +318,37 @@
     ========================= */
 
     .features {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 35px;
+      gap: 20px;
     }
 
     .feature {
-      padding: 27px;
-      border: 1px solid var(--line);
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 22px;
-      background: var(--surface);
+      padding: 30px;
+      transition: 0.3s;
     }
 
-    .feature .icon {
-      font-size: 28px;
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: var(--border);
+    }
+
+    .feature-icon {
+      font-size: 34px;
       margin-bottom: 15px;
     }
 
     .feature h3 {
       margin-bottom: 8px;
+      font-size: 21px;
     }
 
     .feature p {
@@ -362,67 +359,87 @@
        MENU
     ========================= */
 
+    .menu-section {
+      background: #0b0a09;
+    }
+
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
     }
 
     .menu-item {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 25px;
       overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--surface);
-      transition: 0.2s;
+      transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
     }
 
     .menu-item:hover {
-      border-color: #67472a;
-      transform: translateY(-3px);
+      transform: translateY(-8px);
+      border-color: var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
 
-    .menu-item > img {
-      width: 100%;
-      height: 240px;
+    .menu-photo {
+      height: 230px;
+      overflow: hidden;
+    }
+
+    .menu-photo img {
+      height: 100%;
       object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .menu-item:hover .menu-photo img {
+      transform: scale(1.06);
     }
 
     .menu-content {
-      padding: 25px 28px 28px;
+      padding: 25px;
     }
 
-    .menu-item h3 {
-      font-size: 22px;
+    .menu-content h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
     }
 
-    .menu-item p {
+    .menu-content p {
       color: var(--muted);
-      margin-top: 7px;
-      margin-bottom: 14px;
+      min-height: 58px;
+      margin-bottom: 20px;
+    }
+
+    .menu-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .price {
-      display: block;
       color: var(--gold);
       font-weight: 900;
-      font-size: 20px;
-      white-space: nowrap;
+      font-size: 19px;
     }
 
     .order-btn {
-      margin-top: 16px;
-      background: none;
+      border: 1px solid rgba(242,163,41,0.55);
       color: var(--gold);
-      border: 1px solid #6b4a28;
-      border-radius: 999px;
-      padding: 9px 16px;
+      background: transparent;
+      padding: 11px 17px;
+      border-radius: 25px;
       font-weight: 800;
-      transition: 0.2s;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
     .order-btn:hover {
       background: var(--gold);
-      color: #17110a;
+      color: #111;
     }
 
     /* =========================
@@ -430,62 +447,66 @@
     ========================= */
 
     .reviews {
+      background: #11100e;
+    }
+
+    .review-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 22px;
     }
 
     .review {
+      background: #171512;
+      border: 1px solid rgba(255,255,255,0.07);
       padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 25px;
-      background: var(--surface);
+      border-radius: 22px;
     }
 
     .stars {
       color: var(--gold);
-      letter-spacing: 2px;
-      font-size: 19px;
+      font-size: 20px;
+      margin-bottom: 18px;
     }
 
     .review p {
-      font-size: 19px;
-      color: #d3ccc4;
-      margin: 20px 0;
+      color: #d0cbc4;
+      margin-bottom: 22px;
     }
 
     .review strong {
-      font-size: 14px;
+      font-size: 15px;
     }
 
     /* =========================
        VISIT
     ========================= */
 
-    .visit {
+    .visit-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 25px;
     }
 
-    .info {
-      padding: 32px;
-      border: 1px solid var(--line);
-      border-radius: 25px;
-      background: var(--surface);
+    .visit-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 35px;
     }
 
-    .info h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
+    .visit-card h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+      font-size: 24px;
     }
 
-    .info p {
+    .visit-card p {
       color: var(--muted);
-      font-size: 18px;
+      margin: 8px 0;
     }
 
-    .info a {
+    .visit-card a:hover {
       color: var(--gold);
     }
 
@@ -494,43 +515,34 @@
     ========================= */
 
     .cta {
-      background: linear-gradient(145deg, #211811, #15110d);
-      border: 1px solid #5b3e27;
-      border-radius: 34px;
-      padding: 70px 30px;
+      padding: 90px 25px;
+    }
+
+    .cta-box {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 40px;
+      border-radius: 30px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(242,163,41,0.18),
+          rgba(242,163,41,0.03)
+        );
+      border: 1px solid var(--border);
     }
 
-    .cta::before {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      background: rgba(244, 165, 47, 0.12);
-      filter: blur(80px);
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .cta > * {
-      position: relative;
-    }
-
-    .cta h2 {
-      font-size: clamp(42px, 6vw, 70px);
+    .cta-box h2 {
+      font-size: clamp(38px, 5vw, 60px);
       line-height: 1;
-      max-width: 750px;
-      margin: 0 auto 20px;
+      margin-bottom: 18px;
     }
 
-    .cta p {
+    .cta-box p {
       color: var(--muted);
       font-size: 18px;
-      max-width: 650px;
-      margin: 0 auto 30px;
+      margin-bottom: 30px;
     }
 
     /* =========================
@@ -538,16 +550,32 @@
     ========================= */
 
     footer {
-      border-top: 1px solid var(--line);
-      padding: 35px 0;
-      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 25px;
+      background: #090807;
     }
 
-    .footer-row {
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-inner p {
+      color: #77716b;
+      font-size: 14px;
     }
 
     /* =========================
@@ -557,197 +585,265 @@
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.78);
+      z-index: 2000;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(8px);
       display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      z-index: 100;
     }
 
-    .modal.open {
+    .modal.active {
       display: flex;
     }
 
     .modal-box {
-      width: min(520px, 100%);
-      background: #181511;
-      border: 1px solid #59432e;
-      border-radius: 26px;
-      padding: 28px;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 520px;
+      background: #171512;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 30px;
+      position: relative;
+      animation: modalIn 0.25s ease;
     }
 
-    .modal-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 5px;
+    }
+
+    .selected-item {
+      color: var(--gold);
+      font-weight: 800;
       margin-bottom: 20px;
     }
 
-    .modal-top h2 {
-      font-size: 25px;
+    .form-group {
+      margin-bottom: 15px;
     }
 
-    .close {
-      background: none;
-      color: var(--cream);
-      border: 0;
-      font-size: 30px;
-      line-height: 1;
-    }
-
-    .modal-box label {
+    .form-group label {
       display: block;
-      color: #c8bfb5;
-      font-weight: 700;
-      margin: 15px 0 7px;
+      color: #ddd;
+      font-size: 14px;
+      margin-bottom: 6px;
     }
 
-    .modal-box input,
-    .modal-box textarea {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
-      background: #0f0e0c;
-      border: 1px solid #40382f;
-      color: var(--cream);
-      border-radius: 13px;
-      padding: 13px;
-      font: inherit;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #0e0d0b;
+      color: white;
       outline: none;
+      font-size: 15px;
     }
 
-    .modal-box input:focus,
-    .modal-box textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .modal-box textarea {
+    .form-group textarea {
       min-height: 100px;
       resize: vertical;
     }
 
-    .full {
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .submit-order {
       width: 100%;
-      margin-top: 20px;
+      border: none;
+      background: var(--gold);
+      color: #111;
+      padding: 15px;
+      border-radius: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .submit-order:hover {
+      background: var(--gold-light);
+    }
+
+    /* =========================
+       FLOATING WHATSAPP
+    ========================= */
+
+    .floating-wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 900;
+      background: #20c76a;
+      color: white;
+      padding: 13px 18px;
+      border-radius: 30px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      transition: 0.3s;
+    }
+
+    .floating-wa:hover {
+      transform: translateY(-4px);
     }
 
     /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
 
-      .navlinks {
-        display: none;
+      .nav-links {
         position: absolute;
-        left: 20px;
-        right: 20px;
-        top: 70px;
-        background: #14120f;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px;
+        top: 78px;
+        left: 15px;
+        right: 15px;
+        background: #151412;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        padding: 20px;
+        display: none;
         flex-direction: column;
         align-items: stretch;
+        gap: 5px;
       }
 
-      .navlinks.show {
+      .nav-links.active {
         display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(242,163,41,0.08);
+      }
+
+      .nav-order {
+        text-align: center;
       }
 
       .menu-toggle {
         display: block;
       }
 
-      .navcta {
-        display: none;
-      }
-
-      .hero-grid,
-      .story,
-      .visit {
+      .story-grid,
+      .visit-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 45px;
+      .feature-grid,
+      .menu-grid,
+      .review-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-card {
-        min-height: 420px;
-      }
-
-      .features,
-      .reviews {
-        grid-template-columns: 1fr;
-      }
-
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 75px 0;
-      }
-
-      .story-img {
+      .story-image img {
         height: 400px;
       }
     }
 
-    @media (max-width: 520px) {
-
-      .container {
-        width: min(var(--max), calc(100% - 28px));
-      }
+    @media (max-width: 600px) {
 
       .nav {
-        height: 68px;
+        padding: 14px 20px;
       }
 
       .logo {
-        font-size: 20px;
+        font-size: 24px;
+      }
+
+      .hero {
+        min-height: 82vh;
+      }
+
+      .hero-content {
+        padding: 80px 20px;
       }
 
       .hero h1 {
-        font-size: 51px;
+        font-size: 53px;
         letter-spacing: -2.5px;
       }
 
-      .lead {
+      .hero p {
         font-size: 17px;
       }
 
-      .hero-card {
-        min-height: 360px;
+      section {
+        padding: 75px 20px;
       }
 
-      .menu-item > img {
-        height: 210px;
+      .feature-grid,
+      .menu-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-image img {
+        height: 320px;
+      }
+
+      .menu-photo {
+        height: 240px;
       }
 
       .menu-content {
-        padding: 22px;
+        padding: 24px;
       }
 
-      .menu-item h3 {
-        font-size: 19px;
+      .menu-content p {
+        min-height: auto;
+      }
+
+      .menu-bottom {
+        align-items: center;
       }
 
       .price {
         font-size: 17px;
       }
 
-      .cta {
-        padding: 55px 20px;
+      .cta-box {
+        padding: 55px 25px;
       }
 
-      .section-head h2 {
-        font-size: 43px;
+      .floating-wa {
+        left: 20px;
+        right: 20px;
+        text-align: center;
       }
 
-      .modal-box {
-        padding: 22px;
+      footer {
+        padding-bottom: 90px;
       }
     }
   </style>
@@ -757,91 +853,70 @@
 
   <!-- =========================
        HEADER
-  ========================== -->
+  ========================= -->
 
   <header>
-    <div class="container nav">
+    <nav class="nav">
 
-      <a class="logo" href="#home">
+      <a href="#home" class="logo">
         EMBER <span>&</span> SPICE
-      </a>
-
-      <nav class="navlinks" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#story">Our Story</a>
-        <a href="#menu">Menu</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#visit">Find Us</a>
-      </nav>
-
-      <a class="navcta" href="#order">
-        Order Now
       </a>
 
       <button
         class="menu-toggle"
         id="menuToggle"
-        type="button"
-        aria-label="Open menu"
-      >
+        aria-label="Open navigation menu">
         ☰
       </button>
 
-    </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Visit</a>
+        <a href="#order" class="nav-order">Order Now</a>
+      </div>
+
+    </nav>
   </header>
 
 
-  <main>
+  <!-- =========================
+       HERO
+  ========================= -->
 
-    <!-- =========================
-         HERO
-    ========================== -->
+  <main>
 
     <section class="hero" id="home">
 
-      <div class="container hero-grid">
+      <div class="hero-content">
 
-        <div>
+        <span class="eyebrow">
+          Modern African Kitchen
+        </span>
 
-          <div class="eyebrow">
-            Modern African Kitchen
-          </div>
+        <h1>
+          Bold flavours.<br>
+          <span>Beautifully served.</span>
+        </h1>
 
-          <h1>
-            Food with <span>fire & soul.</span>
-          </h1>
+        <p>
+          A modern dining experience inspired by the rich flavours,
+          spices and hospitality of Africa.
+        </p>
 
-          <p class="lead">
-            Bold African flavours, fresh ingredients and unforgettable
-            moments — served from our kitchen to your table.
-          </p>
+        <div class="hero-buttons">
 
-          <div class="actions">
+          <a href="#menu" class="btn btn-primary">
+            Explore Menu
+          </a>
 
-            <a class="btn" href="#menu">
-              Explore Our Menu
-            </a>
-
-            <a class="btn secondary" href="#visit">
-              Find Us
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="hero-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=90"
-            alt="Grilled food served at a restaurant"
-          >
-
-          <div class="hero-badge">
-            <strong>Made fresh every day.</strong>
-            <small>Authentic flavour. Modern presentation.</small>
-          </div>
+          <button
+            class="btn btn-outline"
+            onclick="openOrder('General Enquiry')">
+            Order on WhatsApp
+          </button>
 
         </div>
 
@@ -852,47 +927,45 @@
 
     <!-- =========================
          STORY
-    ========================== -->
+    ========================= -->
 
-    <section id="story">
+    <section class="story" id="story">
 
-      <div class="container story">
+      <div class="container story-grid">
 
-        <div class="story-img">
-
+        <div class="story-image">
           <img
-            src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=90"
-            alt="African-inspired food"
-          >
-
+            src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=90"
+            alt="African inspired restaurant food"
+            loading="lazy">
         </div>
 
+        <div class="story-text">
 
-        <div class="story-copy">
-
-          <div class="eyebrow">
+          <span class="eyebrow">
             Our Story
-          </div>
+          </span>
 
           <h2>
-            Born from Africa.<br>
-            <span>Made for everyone.</span>
+            Africa on a plate.
           </h2>
 
           <p>
-            Ember & Spice started with one simple idea:
-            bring people together around unforgettable food.
+            Ember & Spice brings together traditional African
+            inspiration and a modern dining experience.
           </p>
 
           <p>
-            Our kitchen combines traditional African flavours
-            with modern presentation, creating a dining experience
-            that feels familiar and exciting at the same time.
+            Every plate is prepared with bold spices, fresh
+            ingredients and a passion for unforgettable flavour.
           </p>
 
-          <a class="btn" href="#visit">
-            Come Visit Us
-          </a>
+          <ul class="story-list">
+            <li>Freshly prepared dishes</li>
+            <li>Bold African-inspired flavours</li>
+            <li>Warm and welcoming atmosphere</li>
+            <li>Easy ordering through WhatsApp</li>
+          </ul>
 
         </div>
 
@@ -903,77 +976,39 @@
 
     <!-- =========================
          FEATURES
-    ========================== -->
+    ========================= -->
 
-    <section class="dark-band">
+    <section class="features">
 
       <div class="container">
 
-        <div class="section-head">
-
-          <div class="eyebrow">
-            Why Ember & Spice
-          </div>
-
-          <h2>
-            Good food. Real warmth.
-          </h2>
-
-          <p>
-            Every detail is built around flavour,
-            freshness and genuine African hospitality.
-          </p>
-
-        </div>
-
-
-        <div class="features">
+        <div class="feature-grid">
 
           <div class="feature">
-
-            <div class="icon">🌿</div>
-
-            <h3>
-              Fresh Ingredients
-            </h3>
-
+            <div class="feature-icon">🔥</div>
+            <h3>Fresh & Flavourful</h3>
             <p>
-              Fresh produce, carefully selected spices
-              and ingredients prepared daily.
+              Carefully prepared dishes packed with rich,
+              unforgettable flavour.
             </p>
-
           </div>
 
-
           <div class="feature">
-
-            <div class="icon">🔥</div>
-
-            <h3>
-              Big Flavour
-            </h3>
-
+            <div class="feature-icon">🌍</div>
+            <h3>African Inspired</h3>
             <p>
-              Fire-grilled favourites and bold sauces
-              inspired by African kitchens.
+              Recipes and ingredients inspired by the
+              diverse tastes of Africa.
             </p>
-
           </div>
 
-
           <div class="feature">
-
-            <div class="icon">❤️</div>
-
-            <h3>
-              Made With Love
-            </h3>
-
+            <div class="feature-icon">📲</div>
+            <h3>Easy Ordering</h3>
             <p>
-              Every plate is prepared with attention
-              to detail and genuine hospitality.
+              Choose your meal and send your order directly
+              through WhatsApp.
             </p>
-
           </div>
 
         </div>
@@ -985,20 +1020,20 @@
 
     <!-- =========================
          MENU
-    ========================== -->
+    ========================= -->
 
-    <section id="menu">
+    <section class="menu-section" id="menu">
 
       <div class="container">
 
-        <div class="section-head">
+        <div class="section-heading">
 
-          <div class="eyebrow">
+          <span class="eyebrow">
             Our Menu
-          </div>
+          </span>
 
           <h2>
-            Something for every appetite.
+            Made to be remembered.
           </h2>
 
           <p>
@@ -1011,220 +1046,233 @@
         <div class="menu-grid">
 
 
-          <!-- EMBER CHICKEN -->
+          <!-- Ember Chicken -->
 
           <article class="menu-item">
 
-            <img
-              src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=900&q=90"
-              alt="Ember Chicken"
-            >
+            <div class="menu-photo">
+              <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=90"
+                alt="Ember Chicken"
+                loading="lazy">
+            </div>
 
             <div class="menu-content">
 
-              <h3>
-                Ember Chicken
-              </h3>
+              <h3>Ember Chicken</h3>
 
               <p>
-                Fire-grilled chicken, African spices
-                and our signature sauce.
+                Fire-grilled chicken, African spices and
+                our signature sauce.
               </p>
 
-              <strong class="price">
-                UGX 25,000
-              </strong>
+              <div class="menu-bottom">
 
-              <button
-                class="order-btn"
-                data-item="Ember Chicken"
-                type="button"
-              >
-                Order this
-              </button>
+                <div class="price">
+                  UGX 25,000
+                </div>
+
+                <button
+                  class="order-btn"
+                  data-item="Ember Chicken">
+                  Order this
+                </button>
+
+              </div>
 
             </div>
 
           </article>
 
 
-          <!-- SPICED BEEF -->
+          <!-- Spiced Beef -->
 
           <article class="menu-item">
 
-            <img
-              src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=90"
-              alt="Spiced Beef Grill"
-            >
+            <div class="menu-photo">
+              <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=90"
+                alt="Spiced Beef Grill"
+                loading="lazy">
+            </div>
 
             <div class="menu-content">
 
-              <h3>
-                Spiced Beef Grill
-              </h3>
+              <h3>Spiced Beef Grill</h3>
 
               <p>
-                Tender grilled beef with African herbs
-                and bold spices.
+                Tender grilled beef seasoned with aromatic
+                African spices.
               </p>
 
-              <strong class="price">
-                UGX 28,000
-              </strong>
+              <div class="menu-bottom">
 
-              <button
-                class="order-btn"
-                data-item="Spiced Beef Grill"
-                type="button"
-              >
-                Order this
-              </button>
+                <div class="price">
+                  UGX 28,000
+                </div>
+
+                <button
+                  class="order-btn"
+                  data-item="Spiced Beef Grill">
+                  Order this
+                </button>
+
+              </div>
 
             </div>
 
           </article>
 
 
-          <!-- ROYAL PILAU -->
+          <!-- Royal Pilau -->
 
           <article class="menu-item">
 
-            <img
-              src="https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=900&q=90"
-              alt="Royal Pilau"
-            >
+            <div class="menu-photo">
+              <img
+                src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1200&q=90"
+                alt="Royal Pilau"
+                loading="lazy">
+            </div>
 
             <div class="menu-content">
 
-              <h3>
-                Royal Pilau
-              </h3>
+              <h3>Royal Pilau</h3>
 
               <p>
                 Fragrant spiced rice prepared with rich
                 African flavours.
               </p>
 
-              <strong class="price">
-                UGX 20,000
-              </strong>
+              <div class="menu-bottom">
 
-              <button
-                class="order-btn"
-                data-item="Royal Pilau"
-                type="button"
-              >
-                Order this
-              </button>
+                <div class="price">
+                  UGX 20,000
+                </div>
+
+                <button
+                  class="order-btn"
+                  data-item="Royal Pilau">
+                  Order this
+                </button>
+
+              </div>
 
             </div>
 
           </article>
 
 
-          <!-- GOLDEN CHAPATI -->
+          <!-- Golden Chapati -->
 
           <article class="menu-item">
 
-            <img
-              src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=90"
-              alt="Golden Chapati"
-            >
+            <div class="menu-photo">
+              <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=90"
+                alt="Golden Chapati"
+                loading="lazy">
+            </div>
 
             <div class="menu-content">
 
-              <h3>
-                Golden Chapati
-              </h3>
+              <h3>Golden Chapati</h3>
 
               <p>
-                Fresh handmade chapati with our house stew.
+                Fresh handmade chapati served with
+                our house stew.
               </p>
 
-              <strong class="price">
-                UGX 15,000
-              </strong>
+              <div class="menu-bottom">
 
-              <button
-                class="order-btn"
-                data-item="Golden Chapati"
-                type="button"
-              >
-                Order this
-              </button>
+                <div class="price">
+                  UGX 15,000
+                </div>
+
+                <button
+                  class="order-btn"
+                  data-item="Golden Chapati">
+                  Order this
+                </button>
+
+              </div>
 
             </div>
 
           </article>
 
 
-          <!-- SPICY FISH -->
+          <!-- Spicy Fish -->
 
           <article class="menu-item">
 
-            <img
-              src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=900&q=90"
-              alt="Spicy Fish"
-            >
+            <div class="menu-photo">
+              <img
+                src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=90"
+                alt="Spicy Fish"
+                loading="lazy">
+            </div>
 
             <div class="menu-content">
 
-              <h3>
-                Spicy Fish
-              </h3>
+              <h3>Spicy Fish</h3>
 
               <p>
-                Pan-seared fish, herbs, chilli
-                and fresh lemon.
+                Pan-seared fish, herbs, chilli and
+                fresh lemon.
               </p>
 
-              <strong class="price">
-                UGX 30,000
-              </strong>
+              <div class="menu-bottom">
 
-              <button
-                class="order-btn"
-                data-item="Spicy Fish"
-                type="button"
-              >
-                Order this
-              </button>
+                <div class="price">
+                  UGX 30,000
+                </div>
+
+                <button
+                  class="order-btn"
+                  data-item="Spicy Fish">
+                  Order this
+                </button>
+
+              </div>
 
             </div>
 
           </article>
 
 
-          <!-- TROPICAL PASSION -->
+          <!-- Tropical Passion -->
 
           <article class="menu-item">
 
-            <img
-              src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=900&q=90"
-              alt="Tropical Passion drink"
-            >
+            <div class="menu-photo">
+              <img
+                src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=1200&q=90"
+                alt="Tropical Passion drink"
+                loading="lazy">
+            </div>
 
             <div class="menu-content">
 
-              <h3>
-                Tropical Passion
-              </h3>
+              <h3>Tropical Passion</h3>
 
               <p>
                 Fresh passion fruit, pineapple and mint.
               </p>
 
-              <strong class="price">
-                UGX 10,000
-              </strong>
+              <div class="menu-bottom">
 
-              <button
-                class="order-btn"
-                data-item="Tropical Passion"
-                type="button"
-              >
-                Order this
-              </button>
+                <div class="price">
+                  UGX 10,000
+                </div>
+
+                <button
+                  class="order-btn"
+                  data-item="Tropical Passion">
+                  Order this
+                </button>
+
+              </div>
 
             </div>
 
@@ -1240,27 +1288,31 @@
 
     <!-- =========================
          REVIEWS
-    ========================== -->
+    ========================= -->
 
-    <section class="dark-band" id="reviews">
+    <section class="reviews" id="reviews">
 
       <div class="container">
 
-        <div class="section-head">
+        <div class="section-heading">
 
-          <div class="eyebrow">
-            Guest Reviews
-          </div>
+          <span class="eyebrow">
+            Guest Love
+          </span>
 
           <h2>
-            Don't just take our word for it.
+            Good food. Good memories.
           </h2>
+
+          <p>
+            A few words from guests who have experienced
+            the Ember & Spice table.
+          </p>
 
         </div>
 
 
-        <div class="reviews">
-
+        <div class="review-grid">
 
           <div class="review">
 
@@ -1269,13 +1321,12 @@
             </div>
 
             <p>
-              “The grilled chicken was incredible.
-              The flavours were completely different
-              from anything I've tried before.”
+              “The flavours were incredible. The chicken
+              was perfectly grilled and full of spice.”
             </p>
 
             <strong>
-              — Sarah M.
+              — Happy Guest
             </strong>
 
           </div>
@@ -1288,13 +1339,12 @@
             </div>
 
             <p>
-              “Beautiful atmosphere, friendly staff
-              and seriously good food. I'll definitely
-              be coming back.”
+              “Beautiful food, friendly service and
+              a really relaxed atmosphere.”
             </p>
 
             <strong>
-              — Daniel K.
+              — Restaurant Guest
             </strong>
 
           </div>
@@ -1307,17 +1357,15 @@
             </div>
 
             <p>
-              “Perfect place for dinner with friends.
-              The food, service and presentation
-              were excellent.”
+              “The pilau is amazing. I would definitely
+              come back again.”
             </p>
 
             <strong>
-              — Michael T.
+              — Happy Customer
             </strong>
 
           </div>
-
 
         </div>
 
@@ -1327,73 +1375,74 @@
 
 
     <!-- =========================
-         FIND US
-    ========================== -->
+         VISIT
+    ========================= -->
 
     <section id="visit">
 
       <div class="container">
 
-        <div class="section-head">
+        <div class="section-heading">
 
-          <div class="eyebrow">
-            Come Hungry
-          </div>
+          <span class="eyebrow">
+            Visit Us
+          </span>
 
           <h2>
-            Find us & say hello.
+            Come hungry.
           </h2>
 
           <p>
-            We'd love to have you at the table.
+            We're ready to welcome you.
           </p>
 
         </div>
 
 
-        <div class="visit">
+        <div class="visit-grid">
 
+          <div class="visit-card">
 
-          <div class="info">
-
-            <h3>
-              📍 Location
-            </h3>
+            <h3>📍 Location</h3>
 
             <p>
-              24 Market Street<br>
-              Mbarara, Uganda
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=24+Market+Street+Mbarara+Uganda"
+                target="_blank">
+                24 Market Street<br>
+                Mbarara, Uganda
+              </a>
             </p>
 
           </div>
 
 
-          <div class="info">
+          <div class="visit-card">
 
-            <h3>
-              🕐 Opening Hours
-            </h3>
+            <h3>🕐 Opening Hours</h3>
 
             <p>
-              Monday – Sunday<br>
+              Monday – Sunday
+            </p>
+
+            <p>
               10:00 AM – 10:00 PM
             </p>
 
           </div>
 
 
-          <div class="info">
+          <div class="visit-card">
 
-            <h3>
-              📞 Contact
-            </h3>
+            <h3>📞 Contact</h3>
 
             <p>
               <a href="tel:+256706030531">
                 +256 706 030 531
               </a>
-              <br>
+            </p>
 
+            <p>
               <a href="mailto:hello@emberspice.com">
                 hello@emberspice.com
               </a>
@@ -1402,19 +1451,24 @@
           </div>
 
 
-          <div class="info">
+          <div class="visit-card">
 
-            <h3>
-              💬 WhatsApp
-            </h3>
+            <h3>📲 Order</h3>
 
             <p>
-              Fast ordering and table enquiries
-              through WhatsApp.
+              Choose your favourite meal and send your
+              order directly through WhatsApp.
             </p>
 
-          </div>
+            <br>
 
+            <button
+              class="btn btn-primary"
+              onclick="openOrder('General Order')">
+              Start an Order
+            </button>
+
+          </div>
 
         </div>
 
@@ -1424,37 +1478,30 @@
 
 
     <!-- =========================
-         ORDER CTA
-    ========================== -->
+         CTA
+    ========================= -->
 
-    <section id="order">
+    <section class="cta" id="order">
 
-      <div class="container">
+      <div class="cta-box">
 
-        <div class="cta">
+        <span class="eyebrow">
+          Ready to eat?
+        </span>
 
-          <div class="eyebrow">
-            Ready to eat?
-          </div>
+        <h2>
+          Your next favourite meal is waiting.
+        </h2>
 
-          <h2>
-            Let's make it delicious.
-          </h2>
+        <p>
+          Place your order directly through WhatsApp.
+        </p>
 
-          <p>
-            Reserve your table or place an order
-            directly through WhatsApp.
-          </p>
-
-          <button
-            class="btn"
-            id="mainOrder"
-            type="button"
-          >
-            Order on WhatsApp
-          </button>
-
-        </div>
+        <button
+          class="btn btn-primary"
+          onclick="openOrder('General Order')">
+          Order on WhatsApp
+        </button>
 
       </div>
 
@@ -1465,20 +1512,19 @@
 
   <!-- =========================
        FOOTER
-  ========================== -->
+  ========================= -->
 
   <footer>
 
-    <div class="container footer-row">
+    <div class="footer-inner">
 
-      <div>
-        © 2026 Ember & Spice.
-        All rights reserved.
+      <div class="footer-logo">
+        EMBER <span>&</span> SPICE
       </div>
 
-      <div>
-        Modern African Kitchen · Mbarara, Uganda
-      </div>
+      <p>
+        © 2026 Ember & Spice. Modern African Kitchen.
+      </p>
 
     </div>
 
@@ -1486,73 +1532,75 @@
 
 
   <!-- =========================
-       ORDER MODAL
-  ========================== -->
+       FLOATING WHATSAPP
+  ========================= -->
 
-  <div
-    class="modal"
-    id="modal"
-    aria-hidden="true"
-  >
+  <a
+    class="floating-wa"
+    href="https://wa.me/256706030531?text=Hello%20Ember%20%26%20Spice!%20I%20would%20like%20to%20make%20an%20order."
+    target="_blank"
+    aria-label="Order on WhatsApp">
+    💬 Order on WhatsApp
+  </a>
+
+
+  <!-- =========================
+       ORDER MODAL
+  ========================= -->
+
+  <div class="modal" id="orderModal">
 
     <div class="modal-box">
 
-      <div class="modal-top">
+      <button
+        class="close-modal"
+        id="closeModal"
+        aria-label="Close order form">
+        ×
+      </button>
 
-        <h2>
-          Order on WhatsApp
-        </h2>
+      <h2>
+        Place Your Order
+      </h2>
 
-        <button
-          class="close"
-          id="closeModal"
-          type="button"
-          aria-label="Close"
-        >
-          ×
-        </button>
+      <div
+        class="selected-item"
+        id="selectedItem">
+        Selected item
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="customerName">
+          Your name
+        </label>
+
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Enter your name">
 
       </div>
 
 
-      <label for="itemInput">
-        What would you like?
-      </label>
+      <div class="form-group">
 
-      <input
-        id="itemInput"
-        type="text"
-        placeholder="e.g. Ember Chicken"
-      >
+        <label for="orderDetails">
+          Order details
+        </label>
 
+        <textarea
+          id="orderDetails"
+          placeholder="Any extra details? Quantity, delivery, special request..."></textarea>
 
-      <label for="nameInput">
-        Your name
-      </label>
-
-      <input
-        id="nameInput"
-        type="text"
-        placeholder="Your name"
-      >
-
-
-      <label for="detailsInput">
-        Order / table details
-      </label>
-
-      <textarea
-        id="detailsInput"
-        placeholder="Quantity, pickup/table request, etc."
-      ></textarea>
+      </div>
 
 
       <button
-        class="btn full"
-        id="sendWhatsApp"
-        type="button"
-      >
-        Continue to WhatsApp
+        class="submit-order"
+        id="submitOrder">
+        Send Order to WhatsApp
       </button>
 
     </div>
@@ -1562,77 +1610,96 @@
 
   <!-- =========================
        JAVASCRIPT
-  ========================== -->
+  ========================= -->
 
   <script>
 
-    /*
-      RESTAURANT WHATSAPP NUMBER
-
-      Country code:
-      Uganda = 256
-
-      Number:
-      706030531
-
-      IMPORTANT:
-      Do not put + or spaces here.
-    */
-
+    /* WhatsApp number */
     const WHATSAPP_NUMBER = "256706030531";
 
 
-    /* GET ELEMENTS */
+    /* Mobile navigation */
 
-    const modal = document.getElementById("modal");
+    const menuToggle =
+      document.getElementById("menuToggle");
 
-    const itemInput =
-      document.getElementById("itemInput");
-
-    const nameInput =
-      document.getElementById("nameInput");
-
-    const detailsInput =
-      document.getElementById("detailsInput");
+    const navLinks =
+      document.getElementById("navLinks");
 
 
-    /* OPEN ORDER WINDOW */
+    menuToggle.addEventListener("click", function () {
 
-    function openOrder(item = "") {
+      navLinks.classList.toggle("active");
 
-      itemInput.value = item;
+    });
 
-      modal.classList.add("open");
 
-      modal.setAttribute("aria-hidden", "false");
+    /* Close mobile menu after clicking */
 
-      setTimeout(() => {
-        if (item) {
-          nameInput.focus();
-        } else {
-          itemInput.focus();
-        }
+    document.querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navLinks.classList.remove("active");
+
+        });
+
+      });
+
+
+    /* Order modal */
+
+    const modal =
+      document.getElementById("orderModal");
+
+    const selectedItem =
+      document.getElementById("selectedItem");
+
+    const customerName =
+      document.getElementById("customerName");
+
+    const orderDetails =
+      document.getElementById("orderDetails");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const submitOrder =
+      document.getElementById("submitOrder");
+
+
+    let currentItem = "";
+
+
+    /* Open order modal */
+
+    function openOrder(item) {
+
+      currentItem = item;
+
+      selectedItem.textContent =
+        "Selected: " + item;
+
+      modal.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+
+      setTimeout(function() {
+
+        customerName.focus();
+
       }, 100);
+
     }
 
 
-    /* CLOSE ORDER WINDOW */
+    /* Menu order buttons */
 
-    function closeOrder() {
+    document.querySelectorAll(".order-btn")
+      .forEach(function(button) {
 
-      modal.classList.remove("open");
-
-      modal.setAttribute("aria-hidden", "true");
-    }
-
-
-    /* EVERY MENU ORDER BUTTON */
-
-    document
-      .querySelectorAll(".order-btn")
-      .forEach((button) => {
-
-        button.addEventListener("click", () => {
+        button.addEventListener("click", function() {
 
           const item =
             button.getAttribute("data-item");
@@ -1644,66 +1711,75 @@
       });
 
 
-    /* MAIN ORDER BUTTON */
+    /* Close modal */
 
-    document
-      .getElementById("mainOrder")
-      .addEventListener("click", () => {
+    function closeOrderModal() {
 
-        openOrder("");
+      modal.classList.remove("active");
 
-      });
+      document.body.style.overflow = "";
 
-
-    /* CLOSE BUTTON */
-
-    document
-      .getElementById("closeModal")
-      .addEventListener("click", closeOrder);
+    }
 
 
-    /* CLICK OUTSIDE MODAL */
+    closeModal.addEventListener(
+      "click",
+      closeOrderModal
+    );
 
-    modal.addEventListener("click", (event) => {
+
+    /* Close when clicking outside */
+
+    modal.addEventListener("click", function(event) {
 
       if (event.target === modal) {
-        closeOrder();
+
+        closeOrderModal();
+
       }
 
     });
 
 
-    /* SEND ORDER TO WHATSAPP */
+    /* Send order to WhatsApp */
 
-    document
-      .getElementById("sendWhatsApp")
-      .addEventListener("click", () => {
-
-        const item =
-          itemInput.value.trim() ||
-          "I would like to make an order";
+    submitOrder.addEventListener(
+      "click",
+      function() {
 
         const name =
-          nameInput.value.trim() ||
-          "Customer";
+          customerName.value.trim();
 
         const details =
-          detailsInput.value.trim() ||
-          "Please let me know the next step.";
+          orderDetails.value.trim();
+
+
+        if (!name) {
+
+          alert("Please enter your name.");
+
+          customerName.focus();
+
+          return;
+
+        }
 
 
         const message =
-          `Hello Ember & Spice!
+`Hello Ember & Spice!
 
 Name: ${name}
 
-Order: ${item}
+Order: ${currentItem}
 
-Details: ${details}`;
+Details: ${details || "No extra details."}`;
 
 
         const whatsappURL =
-          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          encodeURIComponent(message);
 
 
         window.open(
@@ -1711,48 +1787,27 @@ Details: ${details}`;
           "_blank"
         );
 
-      });
 
+        closeOrderModal();
 
-    /* MOBILE MENU */
-
-    document
-      .getElementById("menuToggle")
-      .addEventListener("click", () => {
-
-        document
-          .getElementById("navLinks")
-          .classList.toggle("show");
-
-      });
-
-
-    /* CLOSE MOBILE MENU AFTER CLICKING A LINK */
-
-    document
-      .querySelectorAll(".navlinks a")
-      .forEach((link) => {
-
-        link.addEventListener("click", () => {
-
-          document
-            .getElementById("navLinks")
-            .classList.remove("show");
-
-        });
-
-      });
-
-
-    /* ESCAPE KEY CLOSES MODAL */
-
-    document.addEventListener("keydown", (event) => {
-
-      if (event.key === "Escape") {
-        closeOrder();
       }
+    );
 
-    });
+
+    /* Escape key closes modal */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeOrderModal();
+
+        }
+
+      }
+    );
 
   </script>
 
