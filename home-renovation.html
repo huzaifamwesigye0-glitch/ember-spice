@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="North & Oak Renovations — premium home renovations, extensions, kitchens, bathrooms and interior upgrades.">
+  <title>North & Oak Renovations | Premium Home Renovation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #171715;
+      --ink-soft: #24241f;
+      --cream: #f5f1e8;
+      --paper: #fffdf8;
+      --muted: #77746c;
+      --line: #ddd8cd;
+      --gold: #b18a4a;
+      --gold-dark: #87662f;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(0,0,0,.10);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold-dark);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.12;
+    }
+
+    h1,
+    h2 {
+      font-family: "Playfair Display", serif;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      max-width: 720px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      color: var(--muted);
+      margin-top: 18px;
+      font-size: 1.03rem;
+    }
+
+    /* NAVIGATION */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,253,248,.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,.07);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.45rem;
+      letter-spacing: .03em;
+    }
+
+    .logo span {
+      font-size: .62rem;
+      letter-spacing: .2em;
+      color: var(--gold-dark);
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-dark);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      background: var(--ink);
+      color: var(--white) !important;
+      border-radius: 999px;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 760px;
+      margin-top: 76px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(15,15,13,.88), rgba(15,15,13,.48), rgba(15,15,13,.12)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 80px 0;
+    }
+
+    .hero .eyebrow {
+      color: #e4c78e;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.3rem, 7vw, 6.6rem);
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: rgba(255,255,255,.84);
+      font-size: 1.12rem;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.55);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.12);
+    }
+
+    .hero-card {
+      position: absolute;
+      right: 5%;
+      bottom: 35px;
+      width: 250px;
+      padding: 20px;
+      background: rgba(255,255,255,.94);
+      color: var(--ink);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      display: block;
+    }
+
+    .hero-card span {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* INTRO STRIP */
+    .intro-strip {
+      background: var(--ink);
+      color: var(--white);
+      padding: 28px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .intro-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .intro-icon {
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #e4c78e;
+      flex: 0 0 auto;
+    }
+
+    .intro-item strong {
+      display: block;
+      font-size: .92rem;
+    }
+
+    .intro-item span {
+      color: rgba(255,255,255,.62);
+      font-size: .78rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-image img {
+      height: 600px;
+      object-fit: cover;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin: 22px 0;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--cream);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--paper);
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-number {
+      color: var(--gold-dark);
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      margin-bottom: 25px;
+    }
+
+    .service-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* PROJECTS */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      min-height: 370px;
+      background: #ddd;
+    }
+
+    .project:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(2) {
+      grid-column: span 5;
+    }
+
+    .project:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .project:nth-child(4) {
+      grid-column: span 7;
+    }
+
+    .project img {
+      height: 100%;
+      min-height: 370px;
+      object-fit: cover;
+      transition: transform .7s ease;
+    }
+
+    .project:hover img {
+      transform: scale(1.06);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 30px;
+      color: var(--white);
+      background: linear-gradient(transparent, rgba(0,0,0,.78));
+    }
+
+    .project-overlay small {
+      color: #e4c78e;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .68rem;
+    }
+
+    .project-overlay h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      margin-top: 5px;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .why-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .why-image img {
+      height: 580px;
+      object-fit: cover;
+    }
+
+    .benefits {
+      margin-top: 35px;
+      display: grid;
+      gap: 25px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 18px;
+    }
+
+    .check {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      font-size: .8rem;
+    }
+
+    .benefit h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* PROCESS */
+    .process {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .process .eyebrow {
+      color: #e4c78e;
+    }
+
+    .process .section-heading p {
+      color: rgba(255,255,255,.65);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.15);
+    }
+
+    .process-card {
+      padding: 35px 25px;
+      background: var(--ink);
+    }
+
+    .process-card .number {
+      color: #e4c78e;
+      font-size: .8rem;
+      letter-spacing: .15em;
+      font-weight: 700;
+    }
+
+    .process-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      margin: 22px 0 10px;
+    }
+
+    .process-card p {
+      color: rgba(255,255,255,.6);
+      font-size: .88rem;
+    }
+
+    /* TESTIMONIALS */
+    .reviews {
+      background: var(--cream);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .stars {
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+
+    .review p {
+      color: #55534d;
+      font-family: "Playfair Display", serif;
+      font-size: 1.18rem;
+    }
+
+    .review-name {
+      margin-top: 25px;
+      font-weight: 700;
+      font-size: .85rem;
+    }
+
+    .review-note {
+      font-size: .7rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* AREAS */
+    .areas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .area {
+      border: 1px solid var(--line);
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .88rem;
+      background: var(--white);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: var(--ink);
+      color: var(--white);
+      padding: 38px;
+      border-radius: var(--radius);
+    }
+
+    .contact-info h2 {
+      font-size: 2.5rem;
+    }
+
+    .contact-info > p {
+      color: rgba(255,255,255,.65);
+      margin: 18px 0 30px;
+    }
+
+    .contact-detail {
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,.13);
+    }
+
+    .contact-detail span {
+      display: block;
+      color: rgba(255,255,255,.5);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 5px;
+    }
+
+    .contact-detail a {
+      color: #e4c78e;
+      font-weight: 600;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .contact-actions .btn {
+      min-height: 45px;
+      padding: 0 18px;
+      font-size: .85rem;
+    }
+
+    .contact-form {
+      background: var(--paper);
+      padding: 38px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+
+    .contact-form h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      border-radius: 10px;
+      padding: 14px;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--gold);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: .72rem;
+      margin-top: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #10100f;
+      color: var(--white);
+      padding: 45px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    footer h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: rgba(255,255,255,.58);
+      font-size: .85rem;
+    }
+
+    footer a:hover {
+      color: #e4c78e;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .demo-label {
+      color: #e4c78e !important;
+      font-size: .7rem !important;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    /* WHATSAPP BAR */
+    .whatsapp-bar {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 900;
+      background: #25D366;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 12px 35px rgba(0,0,0,.22);
+      transition: .25s ease;
+    }
+
+    .whatsapp-bar:hover {
+      transform: translateY(-4px);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--paper);
+        padding: 22px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        min-height: 680px;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      .intro-grid,
+      .service-grid,
+      .review-grid,
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid,
+      .why-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img,
+      .why-image img {
+        height: 450px;
+      }
+
+      .project:nth-child(n) {
+        grid-column: span 6;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .intro-grid,
+      .service-grid,
+      .review-grid,
+      .process-grid,
+      .form-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project:nth-child(n) {
+        grid-column: span 12;
+      }
+
+      .project,
+      .project img {
+        min-height: 320px;
+      }
+
+      .about-image img,
+      .why-image img {
+        height: 380px;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 25px;
+      }
+
+      .whatsapp-bar {
+        left: 15px;
+        right: 15px;
+        bottom: 12px;
+        text-align: center;
+      }
+
+      footer {
+        padding-bottom: 90px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <strong>North & Oak</strong>
+        <span>RENOVATIONS</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="nav-cta">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="eyebrow">Thoughtful design. Exceptional spaces.</div>
+
+        <h1>Homes made for the way you live.</h1>
+
+        <p>
+          Premium renovations, extensions and interior transformations
+          designed with care, built with precision and finished to last.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Explore Our Work</a>
+          <a href="https://wa.me/256706030531?text=Hello%20North%20%26%20Oak%2C%20I%27d%20like%20to%20discuss%20a%20renovation%20project."
+             target="_blank"
+             rel="noopener"
+             class="btn btn-outline">
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <strong>Beautifully considered.</strong>
+      <span>Renovation & construction concept</span>
+    </div>
+  </section>
+
+  <!-- INTRO STRIP -->
+  <section class="intro-strip">
+    <div class="container intro-grid">
+
+      <div class="intro-item">
+        <div class="intro-icon">01</div>
+        <div>
+          <strong>Design-led</strong>
+          <span>Spaces with purpose and personality</span>
+        </div>
+      </div>
+
+      <div class="intro-item">
+        <div class="intro-icon">02</div>
+        <div>
+          <strong>Detail focused</strong>
+          <span>Quality craftsmanship from start to finish</span>
+        </div>
+      </div>
+
+      <div class="intro-item">
+        <div class="intro-icon">03</div>
+        <div>
+          <strong>Client first</strong>
+          <span>Clear communication throughout your project</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+
+      <div class="about-image reveal">
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"
+          alt="Modern renovated home interior"
+          loading="lazy">
+      </div>
+
+      <div class="about-copy reveal">
+        <div class="eyebrow">About North & Oak</div>
+
+        <h2>Renovation should feel exciting, not overwhelming.</h2>
+
+        <p>
+          We believe the best renovation projects combine thoughtful design,
+          practical planning and exceptional workmanship.
+        </p>
+
+        <p>
+          From a considered kitchen transformation to a complete home
+          renovation, every detail is approached with the same care and
+          attention.
+        </p>
+
+        <div class="signature">Built around you.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <div class="eyebrow">What we do</div>
+        <h2>Spaces transformed with purpose.</h2>
+        <p>
+          From individual rooms to complete property transformations,
+          our services are designed around how you want to live.
+        </p>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card reveal">
+          <div class="service-number">01 / KITCHENS</div>
+          <h3>Kitchen Renovations</h3>
+          <p>
+            Functional, beautiful kitchens designed for cooking, gathering
+            and everyday living.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">02 / BATHROOMS</div>
+          <h3>Bathroom Renovations</h3>
+          <p>
+            Calm, refined bathrooms combining practical layouts with
+            timeless finishes.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">03 / WHOLE HOME</div>
+          <h3>Whole-Home Renovations</h3>
+          <p>
+            Complete transformations that bring consistency, comfort and
+            character throughout your home.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">04 / EXTENSIONS</div>
+          <h3>Home Extensions</h3>
+          <p>
+            Thoughtfully planned additional space that feels naturally
+            connected to your existing home.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">05 / INTERIORS</div>
+          <h3>Interior Upgrades</h3>
+          <p>
+            Flooring, lighting, joinery, finishes and details that give
+            your home a refined new feel.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">06 / PLANNING</div>
+          <h3>Renovation Planning</h3>
+          <p>
+            Clear project planning to help you understand the scope,
+            priorities and direction before work begins.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <div class="eyebrow">Selected work</div>
+        <h2>Designed for living beautifully.</h2>
+        <p>
+          A selection of portfolio concepts demonstrating how renovation
+          spaces can be presented online.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85"
+            alt="Modern kitchen renovation"
+            loading="lazy">
+
+          <div class="project-overlay">
+            <small>Kitchen renovation</small>
+            <h3>Warm Modern Kitchen</h3>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+            alt="Elegant living room renovation"
+            loading="lazy">
+
+          <div class="project-overlay">
+            <small>Interior renovation</small>
+            <h3>Contemporary Living</h3>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"
+            alt="Modern bathroom renovation"
+            loading="lazy">
+
+          <div class="project-overlay">
+            <small>Bathroom renovation</small>
+            <h3>Quiet Luxury Bathroom</h3>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85"
+            alt="Modern renovated house exterior"
+            loading="lazy">
+
+          <div class="project-overlay">
+            <small>Whole-home renovation</small>
+            <h3>Modern Family Home</h3>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section">
+    <div class="container why-grid">
+
+      <div class="why-copy reveal">
+        <div class="eyebrow">Why choose us</div>
+
+        <h2>A better renovation experience, from beginning to end.</h2>
+
+        <div class="benefits">
+
+          <div class="benefit">
+            <div class="check">✓</div>
+            <div>
+              <h3>Thoughtful planning</h3>
+              <p>
+                We start by understanding your goals, priorities and
+                vision for the space.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="check">✓</div>
+            <div>
+              <h3>Quality-focused approach</h3>
+              <p>
+                Every stage is approached with attention to materials,
+                finishes and workmanship.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="check">✓</div>
+            <div>
+              <h3>Clear communication</h3>
+              <p>
+                A straightforward process keeps you informed throughout
+                your renovation.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="check">✓</div>
+            <div>
+              <h3>Built around your lifestyle</h3>
+              <p>
+                The finished space should work beautifully for the people
+                who live there.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="why-image reveal">
+        <img
+          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1300&q=85"
+          alt="Beautiful modern home interior"
+          loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process" id="process">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <div class="eyebrow">Our process</div>
+        <h2>A simple path from idea to finished space.</h2>
+        <p>
+          Good communication and planning make a major difference.
+        </p>
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-card reveal">
+          <div class="number">01 / DISCOVER</div>
+          <h3>Tell us your vision</h3>
+          <p>
+            We discuss your goals, lifestyle, property and ideas.
+          </p>
+        </div>
+
+        <div class="process-card reveal">
+          <div class="number">02 / PLAN</div>
+          <h3>Build the direction</h3>
+          <p>
+            We establish the project scope, priorities and design direction.
+          </p>
+        </div>
+
+        <div class="process-card reveal">
+          <div class="number">03 / CREATE</div>
+          <h3>Bring it to life</h3>
+          <p>
+            The renovation moves forward with careful attention to detail.
+          </p>
+        </div>
+
+        <div class="process-card reveal">
+          <div class="number">04 / ENJOY</div>
+          <h3>Step into your new space</h3>
+          <p>
+            The final result is a home designed around the way you live.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section reviews">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <div class="eyebrow">Client experience</div>
+        <h2>What a great renovation should feel like.</h2>
+      </div>
+
+      <div class="review-grid">
+
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “The process felt organised from the beginning and the finished
+            space was even better than we imagined.”
+          </p>
+          <div class="review-name">Sample Client</div>
+          <div class="review-note">Portfolio concept testimonial</div>
+        </article>
+
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “We finally have a home that feels like it belongs to our family.
+            Every detail was considered.”
+          </p>
+          <div class="review-name">Sample Client</div>
+          <div class="review-note">Portfolio concept testimonial</div>
+        </article>
+
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Clear communication, beautiful results and a renovation experience
+            that never felt chaotic.”
+          </p>
+          <div class="review-name">Sample Client</div>
+          <div class="review-note">Portfolio concept testimonial</div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <div class="eyebrow">Service areas</div>
+        <h2>Renovation across New Zealand.</h2>
+        <p>
+          Portfolio concept covering major locations and surrounding areas.
+        </p>
+      </div>
+
+      <div class="areas-grid reveal">
+        <div class="area">Auckland</div>
+        <div class="area">Wellington</div>
+        <div class="area">Christchurch</div>
+        <div class="area">Hamilton</div>
+        <div class="area">Tauranga</div>
+        <div class="area">Queenstown</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container contact-grid">
+
+      <div class="contact-info reveal">
+
+        <div class="eyebrow">Start your project</div>
+
+        <h2>Let's talk about your home.</h2>
+
+        <p>
+          Have a renovation idea? Get in touch and tell us what you have
+          in mind.
+        </p>
+
+        <div class="contact-detail">
+          <span>Phone / WhatsApp</span>
+          <a href="tel:+256706030531">0706 030 531</a>
+        </div>
+
+        <div class="contact-detail">
+          <span>Location concept</span>
+          <div>New Zealand</div>
+        </div>
+
+        <div class="contact-detail">
+          <span>Availability</span>
+          <div>Monday – Saturday</div>
+        </div>
+
+        <div class="contact-actions">
+          <a href="tel:+256706030531" class="btn btn-primary">
+            Call 0706 030 531
+          </a>
+
+          <a
+            href="https://wa.me/256706030531?text=Hello%20North%20%26%20Oak%2C%20I%27d%20like%20to%20discuss%20a%20renovation%20project."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline">
+            WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+      <div class="contact-form reveal">
+
+        <h3>Request a consultation</h3>
+
+        <form id="quoteForm">
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" type="text" placeholder="John Smith" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" type="tel" placeholder="Your phone number" required>
+            </div>
+
+            <div class="field">
+              <label for="service">Project type</label>
+              <select id="service" required>
+                <option value="">Select a service</option>
+                <option>Kitchen Renovation</option>
+                <option>Bathroom Renovation</option>
+                <option>Whole-Home Renovation</option>
+                <option>Home Extension</option>
+                <option>Interior Upgrade</option>
+                <option>Renovation Planning</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="budget">Approximate budget</label>
+              <select id="budget">
+                <option value="">Select range</option>
+                <option>Under $50,000</option>
+                <option>$50,000 – $100,000</option>
+                <option>$100,000 – $200,000</option>
+                <option>$200,000+</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">Tell us about your project</label>
+              <textarea
+                id="message"
+                placeholder="Tell us what you'd like to renovate..."
+                required></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Send Enquiry on WhatsApp
+          </button>
+
+          <p class="form-note">
+            Your enquiry will open WhatsApp with the details already prepared.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <h3>North & Oak</h3>
+          <p>
+            Premium renovation and construction portfolio concept focused
+            on thoughtful design and quality spaces.
+          </p>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+
+          <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Process</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+
+          <div class="footer-links">
+            <a href="tel:+256706030531">Call: 0706 030 531</a>
+
+            <a
+              href="https://wa.me/256706030531?text=Hello%20North%20%26%20Oak%2C%20I%27d%20like%20to%20discuss%20a%20renovation%20project."
+              target="_blank"
+              rel="noopener">
+              WhatsApp: 0706 030 531
+            </a>
+
+            <a href="#contact">Request a quote</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p>
+          © <span id="year"></span> North & Oak Renovations.
+        </p>
+
+        <p class="demo-label">
+          Portfolio Concept — Designed & Developed by CD MBZ
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING BAR -->
+  <a
+    class="whatsapp-bar"
+    href="https://wa.me/256706030531?text=Hello%20North%20%26%20Oak%2C%20I%27d%20like%20to%20discuss%20a%20renovation%20project."
+    target="_blank"
+    rel="noopener">
+    💬 WhatsApp 0706 030 531
+  </a>
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuBtn.textContent = navLinks.classList.contains("open") ? "✕" : "☰";
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Reveal animations
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach(element => observer.observe(element));
+
+    // WhatsApp quote form
+    const quoteForm = document.getElementById("quoteForm");
+
+    quoteForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const budget = document.getElementById("budget").value || "Not specified";
+      const message = document.getElementById("message").value.trim();
+
+      const whatsappMessage =
+        "Hello North & Oak Renovations,%0A%0A" +
+        "I'd like to discuss a renovation project.%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Project: " + encodeURIComponent(service) + "%0A" +
+        "Budget: " + encodeURIComponent(budget) + "%0A%0A" +
+        "Project details:%0A" +
+        encodeURIComponent(message);
+
+      window.open(
+        "https://wa.me/256706030531?text=" + whatsappMessage,
+        "_blank"
+      );
+    });
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
